@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MVCWEB.Models.Rank>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar Rank", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.apresentacao.tema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.artista.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pontos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.apresentacao.tema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.artista.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pontos)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
